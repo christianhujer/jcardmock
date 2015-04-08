@@ -11,6 +11,7 @@ import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+@SuppressWarnings("unchecked")
 public abstract class AbstractCardExceptionTest<E extends Exception> {
 
     private final Class<E> exceptionClass;
@@ -121,7 +122,7 @@ public abstract class AbstractCardExceptionTest<E extends Exception> {
 
     private void throwIt(final short reason) throws E {
         try {
-            final Method throwIt = exceptionClass.getMethod("throwIt", Short.TYPE);
+            final Method throwIt = exceptionClass.getDeclaredMethod("throwIt", Short.TYPE);
             throwIt.invoke(null, reason);
         } catch (final InvocationTargetException e) {
             final Throwable cause = e.getCause();
