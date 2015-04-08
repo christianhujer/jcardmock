@@ -2,10 +2,10 @@ package javacard.framework;
 
 import jcardmock.os.RuntimeEnvironmentOwnedExceptionInstances;
 
-public class CardRuntimeException extends RuntimeException {
+public class CardException extends Exception {
     private short reason;
 
-    public CardRuntimeException(final short reason) {
+    public CardException(final short reason) {
         this.reason = reason;
     }
 
@@ -13,8 +13,8 @@ public class CardRuntimeException extends RuntimeException {
         this.reason = reason;
     }
 
-    public static void throwIt(final short reason) throws CardRuntimeException {
-        RuntimeEnvironmentOwnedExceptionInstances.throwIt(CardRuntimeException.class, reason);
+    public static void throwIt(final short reason) throws CardException {
+        RuntimeEnvironmentOwnedExceptionInstances.throwIt(CardException.class, reason);
     }
 
     public short getReason() {
