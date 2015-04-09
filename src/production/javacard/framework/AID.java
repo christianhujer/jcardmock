@@ -12,8 +12,9 @@ public class AID {
         System.arraycopy(bArray, offset, aidBytes, 0, length);
     }
 
-    public void getBytes(final byte[] dest, final short offset) {
+    public byte getBytes(final byte[] dest, final short offset) {
         System.arraycopy(aidBytes, 0, dest, offset, aidBytes.length);
+        return (byte) aidBytes.length;
     }
 
     public boolean equals(final byte[] bArray, final short offset, final byte length) {

@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.Arrays;
 
 import static java.util.Arrays.fill;
+import static javacard.framework.Assert.assertByteEquals;
 import static javacard.framework.Assert.assertShortEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -58,7 +59,8 @@ public class AIDTest {
         final AID aid = new AID(originalData, (short) 0, (byte) 5);
         fill(originalData, (byte) 0);
         final byte[] actualData = new byte[5];
-        aid.getBytes(actualData, (short) 0);
+        final byte length = aid.getBytes(actualData, (short) 0);
+        assertByteEquals((byte) 5, length);
         final byte[] expectedData = { 0x01, 0x02, 0x03, 0x04, 0x05 };
         assertTrue(Arrays.equals(expectedData, actualData));
     }
@@ -69,7 +71,8 @@ public class AIDTest {
         final AID aid = new AID(originalData, (short) 1, (byte) 5);
         fill(originalData, (byte) 0);
         final byte[] actualData = new byte[6];
-        aid.getBytes(actualData, (short) 1);
+        final byte length = aid.getBytes(actualData, (short) 1);
+        assertByteEquals((byte) 5, length);
         final byte[] expectedData = { 0x00, 0x01, 0x02, 0x03, 0x04, 0x05 };
         assertTrue(Arrays.equals(expectedData, actualData));
     }
@@ -102,5 +105,12 @@ public class AIDTest {
         final AID aid1 = new AID(new byte[] { 0x01, 0x02, 0x03, 0x04, 0x05 }, (short) 0, (byte) 5);
         final AID aid2 = new AID(new byte[] { 0x01, 0x02, 0x03, 0x04, 0x05 }, (short) 0, (byte) 5);
         assertTrue(aid1.equals(aid2));
+    }
+
+    @Test
+    public void testGetPartialBytes() {
+        final AID aid = new AID(new byte[] { 0x01, 0x02, 0x03, 0x04, 0x05 }, (short) 0, (byte) 5);
+        final byte[] buffer = new byte[5];
+        // TODO
     }
 }
