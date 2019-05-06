@@ -1,6 +1,6 @@
 package javacard.framework;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class UserExceptionTest extends AbstractCardExceptionTest<UserException> {
     public UserExceptionTest() {

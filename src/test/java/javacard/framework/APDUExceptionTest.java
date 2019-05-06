@@ -1,17 +1,17 @@
 package javacard.framework;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static javacard.framework.APDUException.*;
 import static javacard.framework.Assert.assertShortEquals;
 
-public class APDUExceptionTest extends AbstractCardExceptionTest<APDUException> {
-    public APDUExceptionTest() {
+class APDUExceptionTest extends AbstractCardExceptionTest<APDUException> {
+    APDUExceptionTest() {
         super(APDUException.class);
     }
 
     @Test
-    public void testConstants() {
+    void testConstants() {
         assertShortEquals((short) 3, BAD_LENGTH);
         assertShortEquals((short) 2, BUFFER_BOUNDS);
         assertShortEquals((short) 1, ILLEGAL_USE);

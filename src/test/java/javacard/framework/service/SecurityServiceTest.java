@@ -1,6 +1,7 @@
 package javacard.framework.service;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import static javacard.framework.Assert.assertByteEquals;
 import static javacard.framework.Assert.assertShortEquals;

@@ -1,7 +1,7 @@
 package javacard.framework.service;
 
 import javacard.framework.AbstractCardExceptionTest;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static javacard.framework.Assert.assertShortEquals;
 import static javacard.framework.service.ServiceException.*;

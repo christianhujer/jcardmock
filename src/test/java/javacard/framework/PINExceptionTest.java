@@ -1,6 +1,6 @@
 package javacard.framework;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static javacard.framework.Assert.assertShortEquals;
 
